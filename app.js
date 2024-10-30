@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
+const sharp = require("sharp");
 
 const app = express();
 
@@ -13,6 +14,8 @@ mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !')
 );
+
+sharp.cache(false);
 
 app.use(cors('*'));
 app.use(bodyParser.json());
