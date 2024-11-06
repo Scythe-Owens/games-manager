@@ -14,3 +14,10 @@ exports.createGame = (req, res, next) => {
         .catch(error => res.status(400).json({ error }))
     ;
 }
+
+exports.readGames = (req, res, next) => {
+    Game.find()
+        .then(games => res.status(200).json(games))
+        .catch(error => res.status(400).json({ error }))
+    ;
+}

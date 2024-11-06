@@ -7,7 +7,7 @@ const sharp = require('../middleware/sharp-config');
 const gameCtrl = require('../controllers/game');
 
 router.post('/', multer, sharp, gameCtrl.createGame);
-// router.get('/', songCtrl.readAll);
+router.get('/', gameCtrl.readGames);
 // router.get('/bestrating', songCtrl.findBestRatedBooks);
 // router.get('/:id', songCtrl.findBookById);
 // router.put('/:id', songCtrl.updateBook);
