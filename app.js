@@ -10,6 +10,7 @@ const app = express();
 
 const categoryRoutes = require('./routes/category');
 const gameRoutes = require('./routes/game');
+const songRoutes = require('./routes/song');
 
 mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -24,5 +25,6 @@ app.use(bodyParser.json());
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/category', categoryRoutes);
 app.use('/api/game', gameRoutes);
+app.use('/api/song', songRoutes);
 
 module.exports = app;
