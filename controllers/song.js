@@ -13,3 +13,10 @@ exports.createSong = (req, res, next) => {
         .catch((error) => res.status(400).json({ message: error }))
     ;
 }
+
+exports.readAll = (req, res, next) => {
+    Song.find()
+        .then(songs => res.status(200).json(songs))
+        .catch(error => res.status(400).json({ error }))
+    ;
+}

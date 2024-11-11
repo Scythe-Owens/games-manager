@@ -4,7 +4,7 @@ const router = express.Router();
 const songCtrl = require('../controllers/song');
 
 router.post('/', songCtrl.createSong);
-// router.get('/', songCtrl.readAll);
+router.get('/', songCtrl.readAll);
 // router.get('/bestrating', songCtrl.findBestRatedBooks);
 // router.get('/:id', songCtrl.findBookById);
 // router.put('/:id', songCtrl.updateBook);
