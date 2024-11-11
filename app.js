@@ -8,6 +8,7 @@ const sharp = require("sharp");
 
 const app = express();
 
+const categoryRoutes = require('./routes/category');
 const gameRoutes = require('./routes/game');
 
 mongoose.connect(process.env.MONGODB_URL)
@@ -21,6 +22,7 @@ app.use(cors('*'));
 app.use(bodyParser.json());
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/api/category', categoryRoutes);
 app.use('/api/game', gameRoutes);
 
 module.exports = app;
