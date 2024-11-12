@@ -1,11 +1,12 @@
 const Game = require('../models/game');
 
 exports.createGame = (req, res, next) => {
-    const gameObject = JSON.parse(req.body.game);
+    const gameObject = JSON.parse(req.body.data);
     delete gameObject._id;
 
     const game = new Game({
         ...gameObject,
+        slug: req.body.slug,
         media: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     })
 

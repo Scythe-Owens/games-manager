@@ -7,6 +7,7 @@ const ruleSchema = mongoose.Schema({
 
 const gameSchema = mongoose.Schema({
     name: { type: String, required: true },
+    slug: { type: String, required: true},
     description: { type: String, required: true },
     media: { type: String, required: true },
     rules: [ruleSchema],

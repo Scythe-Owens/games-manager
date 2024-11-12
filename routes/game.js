@@ -3,10 +3,11 @@ const router = express.Router();
 
 const multer = require('../middleware/multer-config');
 const sharp = require('../middleware/sharp-config');
+const slugify = require('../middleware/slug-config');
 
 const gameCtrl = require('../controllers/game');
 
-router.post('/', multer, sharp, gameCtrl.createGame);
+router.post('/', multer, sharp, slugify, gameCtrl.createGame);
 router.get('/', gameCtrl.readGames);
 // router.get('/bestrating', songCtrl.findBestRatedBooks);
 // router.get('/:id', songCtrl.findBookById);
