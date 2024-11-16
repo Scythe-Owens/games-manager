@@ -20,3 +20,10 @@ exports.readAll = (req, res, next) => {
         .catch(error => res.status(400).json({ error }))
     ;
 }
+
+exports.readAllByCategory = (req, res, next) => {
+    Song.find({ categories: req.params.categoryId })
+        .then(songs => res.status(200).json(songs))
+        .catch(error => res.status(400).json({ error }))
+    ;
+}
