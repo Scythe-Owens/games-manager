@@ -22,3 +22,10 @@ exports.readGames = (req, res, next) => {
         .catch(error => res.status(400).json({ error }))
     ;
 }
+
+exports.readGame = (req, res, next) => {
+    Game.findOne({ slug: req.params.slug })
+        .then(game => res.status(200).json(game))
+        .catch(error => res.status(400).json({ error }))
+    ;
+}

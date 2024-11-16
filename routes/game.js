@@ -9,8 +9,7 @@ const gameCtrl = require('../controllers/game');
 
 router.post('/', multer, sharp, slugify, gameCtrl.createGame);
 router.get('/', gameCtrl.readGames);
-// router.get('/bestrating', songCtrl.findBestRatedBooks);
-// router.get('/:id', songCtrl.findBookById);
+router.get('/:slug', gameCtrl.readGame);
 // router.put('/:id', songCtrl.updateBook);
 // router.delete('/:id', songCtrl.deleteBook);
 // router.post('/:id/rating', songCtrl.rateBook);
