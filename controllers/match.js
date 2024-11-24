@@ -13,3 +13,19 @@ exports.createMatch = (req, res, next) => {
         .catch(error => res.status(400).json({ error }))
     ;
 }
+
+exports.readMatchById = (req, res, next) => {
+    Match.findOne({ _id: req.params.id })
+        .then(match => res.status(201).json({ match }))
+        .catch(error => res.status(400).json({ error }))
+    ;
+}
+
+exports.updateMatch = (req, res, next) => {
+    const matchObject = req.body;
+
+    Match.updateOne({ _id: req.params.id }, { ...matchObject })
+        .then(match => res.status(201).json({ match }))
+        .catch(error => res.status(400).json({ error }))
+    ;
+}
